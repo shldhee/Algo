@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+  /*
+    is_pair함수는 문자열 s를 매개변수로 입력받습니다.
+    s에 괄호가 알맞게 짝지어져 있으면 True를 아니면 False를 리턴하는 함수를 완성하세요.
+    예를들어 s가 "(hello)()"면 True이고, ")("이면 False입니다.
+    s가 빈 문자열("")인 경우는 없습니다.
+  */
+  function is_pair(s){
+    var result = true;
+    var strToArr = s.split("");
+    var count = 0;
+    strToArr.forEach( (v) => {
+      if(count < 0) return false;
+      if(v === '(') {
+        count++;
+      } else if(v === ')') {
+        count--;
+      }
+    });
+    result = (count !== 0 ? false : true);
+    return result;
+  }
+
+  // 아래는 테스트로 출력해 보기 위한 코드입니다.
+  console.log( is_pair("(hello)()") )
+  console.log( is_pair(")(") )
+
+  /*
+  다른 답안
+  1.
+  function is_pair(s){
+    return (s.match(/\(/g)||[]).length === (s.match(/\)/g)||[]).length;
+  }
+
+  정규표현식
+
+  2.
+  function is_pair(s){
+    var result = true;
+    // 함수를 완성하세요
+
+    var open = 0;
+    var close = 0;
+    for (var i = 0; i < s.length; i++) {
+      if (s[i] == '(') open++;
+      else if (s[i] == ')') close++;
+    }
+
+    if (open != close) result = false;
+
+    return result;
+  }
+
+
+
+  3.
+  function is_pair (s) {
+    let a = 0
+
+    for (const c of s) {
+      if (a < 0) return false
+
+      if      (c === '(') a += 1
+      else if (c === ')') a -= 1
+    }
+
+    return a === 0
+  }
+
+  153-182
+
+  https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...of
+  */
+
+  </script>
+</body>
+</html>
