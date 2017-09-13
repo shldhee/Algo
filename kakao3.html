@@ -17,7 +17,22 @@
       secondArr.push(v[i][1]);
     };
 
+    if(firstArr[0] === firstArr[1]) {
+      answer.push(firstArr[2]);
+    } else if(firstArr[0] === firstArr[2]) {
+      answer.push(firstArr[1]);
+    } else {
+      answer.push(firstArr[0]);
+    }
 
+    if(secondArr[0] === secondArr[1]) {
+      answer.push(secondArr[2]);
+    } else if(secondArr[0] === secondArr[2]) {
+      answer.push(secondArr[1]);
+    } else {
+      answer.push(secondArr[0]);
+    }
+    console.log(answer);
     return answer;
   }
   solution([[1, 4], [3, 4], [3, 10]]);
