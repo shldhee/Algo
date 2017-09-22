@@ -17,7 +17,7 @@
 
   function squareSum(string) {
     var array = string.split(""),
-        i = 0;
+        i = 0,
         length = array.length,
         divArray = [],
         anwserArray = [];
@@ -37,7 +37,7 @@
                              .reduce( (p, c) => p+c);
     return anwserArray;
   }
-  
+
   var str = "ab2v9bc13j5jf4jv21";
 
   squareSum(str);
