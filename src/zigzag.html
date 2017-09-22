@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+  /*
+    *** 다음 문제를 풀기 위한 프로그램을 이력서에 첨부해주세요. 외부 라이브러리 사용 가능하고, 두가지 언어 이상으로 작성하거나 비주류 언어 사용시 가산점이 있습니다 ***
+    주어진 문자열에서 홀수인 숫자들의 제곱의 합을 출력한다.
+    예) "ab2v9bc13j5jf4jv21" -> 9^2 + 13^2 + 5^2 + 21^2 = 716
+  */
+
+  function squareSum(a) {
+
+    var array = a.split(""),
+        c = [],
+        d = [],
+        e = [],
+        cnt = 0;
+    console.log(a);
+    for (var i = 0; i < array.length; i++) {
+      if((isNaN(Number(array[i])) !== true)) { // 숫자일때
+        d.push((array.slice(i,i+1))[0]);
+        if((isNaN(Number(array[i+1])) !== false)) { // 문자일때
+          console.log(array[i+1],"string");
+          e.push(d);
+          d = [];
+        }
+      }
+    }
+
+    console.dir(e);
+
+    e = e.map( v => v.reduce((p, c) => p+c ));
+
+    e = e.map( v => Math.pow(+v,2));
+
+    e = e.reduce( (p, c) => p+c);
+
+    console.dir(e);
+
+    return e;
+
+
+    // c = b.map( (v, i, arr) => {
+    //   if((isNaN(Number(v)) !== true)) { // 숫자일때
+    //     d.push((arr.slice(i,i+1))[0]);
+    //   }
+    //   console.log(d)
+    //
+    // });
+  }
+
+  var a = "ab2v9bc13j5jf4jv21";
+
+  squareSum(a);
+
+  </script>
+</body>
+</html>
