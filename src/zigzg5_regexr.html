@@ -16,23 +16,12 @@
   */
 
   function squareSum(string) {
-    let array = string.split(""), // 문자열 배열로 변경
-        i = 0,
-        length = array.length,
-        divArray = [], // 문자, 숫자 구분 배열
-        anwserArray = [];
+		const re = /[0-9]+/g;
+		let str = "ab2v9bc13j5jf4jv21",
+	  	 	matches = str.match(re),
+		 		anwserArray = matches.slice();
 
-    for (i = 0; i < length; i++) {
-      if((isNaN(Number(array[i])) !== true)) { // 배열 요소가 숫자 일때
-        divArray.push((array.slice(i,i+1))[0]); // 구분 배열에 요소 추가
-        if((isNaN(Number(array[i+1])) !== false)) { // 배열 요소가 숫자 다음 문자일때
-          anwserArray.push(divArray); // 새로운 배열에 구분 배열 추가
-          divArray = []; // 구분 배열 초기화
-        }
-      }
-    }
-    anwserArray = anwserArray.map( v => v.reduce((p, c) => p+c )) // 각 배열 숫자 더함
-                             .filter( v => v%2 !== 0) // 짝수 추출
+    anwserArray = anwserArray.filter( v => v%2 !== 0) // 짝수 추출
                              .map( v => v*v ) // 제곱 Math.pow(v,2);
                              .reduce( (p, c) => p+c); // 제곱한 요소들 모두 더함
     return anwserArray;
