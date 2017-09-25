@@ -16,6 +16,9 @@
   */
 
   function squareSum(string) {
+    if(typeof string !== "string") {
+      throw new TypeError("Invaild string");
+    }
     let array = string.split(""), // 문자열 배열로 변경
         i = 0,
         length = array.length,

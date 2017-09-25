@@ -16,6 +16,9 @@
   */
 
   function squareSum(string) {
+    if(typeof string !== "string") {
+      throw new TypeError("Invaild string");
+    }
 		const re = /[0-9]+/g;
 		let str = "ab2v9bc13j5jf4jv21",
 	  	 	matches = str.match(re),
