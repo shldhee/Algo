@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script type="text/javascript">
+  /*
+    “a B z”,4를 입력받았다면 “e F d”를 리턴합니다.
+  */
+    function caesar(s, n) {
+      n = n >= 26 ? n - 26 : n;
+      var result = s.split("").map( v => {
+        if( v !== " " ) {
+          v = v.charCodeAt();
+          if( v >= 65 && v <= 90) {
+            v = v + n;
+            if(v > 90) {
+              v = v - 90 + 64;
+            }
+            v = String.fromCharCode(v);
+          } else if( v >= 97 && v <= 122) {
+            v = v + n;
+            if(v > 122) {
+              v = v - 122 + 96;
+            }
+            v = String.fromCharCode(v);
+          }
+        }
+        return v;
+      });
+    	return result.join("");
+    }
+
+    // console.log('s는 "a B z", n은 4인 경우: ' + caesar("a B z", 4));
+    caesar("ChqJEysw", 29);
+
+    /*
+      다른사람 풀이
+      function caesar(s, n) {
+          return s.split('').map((c) => c !== ' ' ? c.charCodeAt(0) >= 97 ? String.fromCharCode(97 + (c.charCodeAt(0) - 97 + n) % 26) : String.fromCharCode(65 + (c.charCodeAt(0) - 65 + n) % 26) : ' ').join('')
+      }
+
+      function caesar(s, n) {
+          var result = "";
+
+        n %= 26;
+        result = s.split("").map(function(value) {
+          if (value.match(/\s/g)) {
+              return value;
+          }
+
+          var limit = (value.match(/[a-z]/g) ? 'z' : 'Z').charCodeAt(0);
+
+          var converted = value.charCodeAt(0) + n;
+          return String.fromCharCode(converted - (converted > limit ? 26 : 0));
+        }).join("");
+
+          return result;
+      }
+
+      function caesar(s, n) {
+          var result = "";
+          // 함수를 완성하세요.
+        var car = ""
+
+        for (var i=0; i<s.length;i++)
+        {
+          if ( s[i] == ' ' )
+            result += ' '
+          else
+              result += String.fromCharCode( (s.charCodeAt(i)>90)?
+            (s.charCodeAt(i)+n-97)%26+97 : (s.charCodeAt(i)+n-65)%26+65 )
+        }
+
+          return result;
+      }
+      
+      function caesar(s, n) {
+          var result = "";
+          for(var i = 0; i < s.length; i++){
+          if(s[i] != " "){
+            if(s.charCodeAt(i) <= 90){
+             result += String.fromCharCode((s.charCodeAt(i) + n - 65) % 26 + 65)
+            }
+            else{
+              result += String.fromCharCode((s.charCodeAt(i) + n - 97) % 26 + 97)
+            }
+          }
+          else{
+              result += " ";
+          }
+        }
+        return result;
+      }
+
+
+    */
+  </script>
+</body>
+</html>
