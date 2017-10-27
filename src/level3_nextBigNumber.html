@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		function nextBigNumber(n) {
+			let answer = 0;
+		  let count = 0;
+		  n.toString(2).split("").find(v => {if(v==="1") count++; });
+		  while(n++) {
+		    let newCnt = 0;
+		    n.toString(2).split("").find(v => {if(v==="1") newCnt++; });
+		    if(newCnt === count) break;
+		  }
+			return n;
+		}
+
+		//var a = n.toString(2);
+		//var b = Number.parseInt(a,2);
+
+		//아래 코드는 테스트를 위한 코드입니다.
+		console.log(nextBigNumber(78));
+
+		// const oneCount = n => n.toString(2).split('').filter(n => n === '1').length;  .length앞에서 짜름 filter가 1만 있음 배열 반환!!!
+
+		/*
+    const oneCount = n => n.toString(2).split('').filter(n => n === '1').length;
+
+		function nextBigNumber(n) {
+			let l = oneCount(n);
+			while (n++) {
+				if (l === oneCount(n))
+					return n;
+			}
+		}
+    */
+/*
+    function nextBigNumber(n) {
+      var size = n.toString(2).match(/1/g).length
+      while(n++) {
+          if(size === n.toString(2).match(/1/g).length) return n
+      }
+    }
+*/
+	</script>
+</body>
+
+</html>
