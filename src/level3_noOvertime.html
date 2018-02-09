@@ -24,6 +24,8 @@
       // avg = sum / worksLength;
       // console.log(avg);
 
+      // 1차 막힘
+
       for (var i = 0; i < no; i++) {
         // works.sort(function (a, b) {
         //   return b - a;
@@ -48,7 +50,17 @@
     }
 
     noOvertime(10, [5, 6, 4]);
+
+  /*
+    처음엔 평균 값 구해서 모든 배열 값들이 평균값을 맞추고 높거나 모자라는건 어떻게 하지?
+    하다가 하나씩 빼주자 for 문 쓰고 어떻게 하나씩 할까 고민하다 sort가 생각남
+    for문 돌때마다 sort로 제일 큰수 앞으로 빼고 하나씩 뺴주면 될것 같음.
+    그러니깐 되었음. sum,avg ... 등 다 필요 없음.
+  */
   </script>
+
+
+
 </body>
 
 </html>
