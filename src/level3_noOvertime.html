@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function noOvertime(no, works) {
+      var result = 0;
+      // 야근 지수를 최소화 하였을 때의 야근 지수는 몇일까요?
+      //var sum = 0;
+      //var avg = 0;
+      //var worksLength = works.length;
+
+      // for (var i = 0; i < worksLength; i++) {
+      //   sum += works[i];
+      // }
+
+      // avg = sum / worksLength;
+      // console.log(avg);
+
+      for (var i = 0; i < no; i++) {
+        // works.sort(function (a, b) {
+        //   return b - a;
+        // });
+        works.sort((a, b) => b - a);
+        //works[0] = works[0] - 1;
+        works[0] -= 1;
+      }
+
+      // for (var i = 0; i < worksLength; i++) {
+      //   result += Math.pow(works[i], 2);
+      // }
+      result = works.map(v => Math.pow(v, 2)).reduce((p, c) => p + c)
+      // 대안 1.
+      /*
+        works.forEach(element => {
+          result = result + Math.pow(element, 2);
+        });
+      */
+
+      return result;
+    }
+
+    noOvertime(10, [5, 6, 4]);
+  </script>
+</body>
+
+</html>
