@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function maskify(cc) {
+        var len = cc.length;
+        if (len <= 4) {
+          return cc;
+        } else {
+          var piece = cc.slice(len - 4);
+          var newSt = "";
+          for (var i = 0; i < len - 4; i++) {
+            newSt += "#";
+          }
+          return (newSt += piece);
+        }
+      }
+
+      console.log(maskify("Skippy"));
+    </script>
+  </body>
+</html>

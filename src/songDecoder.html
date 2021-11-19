@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function songDecoder(song) {
+        const arr = song.split("WUB");
+        // console.log(`arr : ${arr}`);
+        let songName = "";
+
+        for (let word of arr) {
+          // console.log(`word : ${word}`)
+          if (word !== "") {
+            songName += word + " ";
+          }
+          console.log(`songName : ${songName}`);
+        }
+
+        return songName.trim();
+      }
+
+      console.log(songDecoder("WUBAWUBBWUBCWUB"));
+    </script>
+  </body>
+</html>
