@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function digital_root(n) {
+        // 재귀 함수 사용
+        // 문자 length split 나누기
+        const arr = String(n).split("");
+
+        console.log(`arr : ${arr}`);
+        let sum = 0;
+
+        function sumR(arr) {
+          console.log(arr);
+          if (arr.length === 1) {
+            return arr[0];
+          }
+
+          for (var i of arr) {
+            sum += +i;
+          }
+          console.log(`sum : ${sum}`);
+          return sumR(String(sum).split(""));
+        }
+
+        return sumR(arr);
+      }
+
+      console.log(digital_root(942));
+    </script>
+  </body>
+</html>

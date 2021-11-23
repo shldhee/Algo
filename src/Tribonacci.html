@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function tribonacci(arr, num) {
+        if (num === 0) return [];
+        if (num <= 3) {
+          return arr.slice(0, num);
+        }
+
+        let count = 3;
+        arr[3] = arr[0] + arr[1] + arr[2];
+        while (count <= num) {
+          arr[count + 1] = arr[count - 2] + arr[count - 1] + arr[count];
+          count++;
+        }
+
+        // arr[0] + arr[1] + arr[2] -> arr[3]
+        // arr[1] + arr[2] + arr[3] -> arr[4]
+        // arr[2] + arr[3] + arr[4] -> arr[5]
+        console.log(arr.slice(0, num));
+        return arr.slice(0, num);
+      }
+      console.log(`tribonacci([0, 0, 1], 0 : ${tribonacci([0, 0, 1], 0)}`);
+      console.log(`tribonacci([1, 1, 1], 1 : ${tribonacci([1, 1, 1], 1)}`);
+      console.log(`tribonacci([0, 1, 1], 5 : ${tribonacci([0, 1, 1], 5)}`);
+
+      // function tribonacci(signature, n) {
+      //   if (n <= 3) {
+      //     return signature.splice(0, n);
+      //   }
+      //   for (var i = 0; i < n - 3; i++) {
+      //     signature.push(signature[i] + signature[i + 1] + signature[i + 2]);
+      //   }
+      //   return signature;
+      // }
+    </script>
+  </body>
+</html>

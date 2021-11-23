@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(lottos) {
+        const letterArr = lottos.join(" ").split(" ");
+        const obj = {};
+
+        for (const item of letterArr) {
+          if (!obj[item]) {
+            obj[item] = 1;
+          } else {
+            obj[item] = obj[item] + 1;
+          }
+        }
+
+        const allLottoList = Object.keys(obj)
+          .map((item) => ({
+            number: item,
+            count: obj[item],
+          }))
+          .sort((a, b) => b.count - a.count);
+
+        console.log(allLottoList);
+
+        const resultNumbers = allLottoList
+          .slice(0, 6)
+          .map(({ number }) => number)
+          .sort((a, b) => a - b);
+        console.log(resultNumbers);
+
+        // const bonusNumbers = allLottoList
+        //   .filter((item) => item.number.includes("("))
+        //   .map((value) => ({
+        //     ...value,
+        //     value: value.number.replace(/\(/, "").replace(/\)/, ""),
+        //   }));
+
+        // allLottoList[6]
+        const bonusNumbers = allLottoList
+          .filter((item) => item.number.includes("("))
+          .map((value) => ({
+            ...value,
+            value: value.number.replace(/\(/, "").replace(/\)/, ""),
+          }));
+
+        console.log(bonusNumbers);
+
+        const bonusNumber =
+          bonusNumbers.filter((item) => !resultNumbers.includes(item.value))
+            .length !== 0
+            ? bonusNumbers.filter(
+                (item) => !resultNumbers.includes(item.value)
+              )[0].value
+            : allLottoList[6].number;
+
+        let index = 0;
+        while (resultNumbers.length > 0) {
+          console.log(index);
+          console.log(resultNumbers[index]);
+          console.log(+bonusNumber);
+          if (resultNumbers[index] < +bonusNumber) {
+            index++;
+          } else {
+            break;
+          }
+        }
+
+        resultNumbers.splice(
+          index,
+          0,
+          `(${bonusNumber.number || bonusNumber})`
+        );
+        return resultNumbers.join(" ");
+      }
+
+      console.log(
+        solution([
+          "15 10 39 5 1 21 (22)",
+          "11 5 (10) 39 1 8 44",
+          "(39) 10 5 22 15 9 20",
+          "22 10 5 1 (15) 3 2",
+          "10 (5) 22 1 15 41 38",
+          "10 5 39 33 17 14 (1)",
+        ])
+      );
+      console.log(
+        solution([
+          "10 18 23 33 (15) 29 45",
+          "42 (5) 45 32 15 23 12",
+          "19 6 12 16 35 34 (17)",
+          "(15) 23 26 21 20 37 12",
+          "15 20 39 9 (18) 5 12",
+          "18 (20) 11 5 22 21 25",
+          "42 44 23 8 5 22 (20)",
+        ])
+      );
+    </script>
+  </body>
+</html>

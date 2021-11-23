@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(bricks) {
+        const maxWidth = bricks.reduce((acc, item) => acc + item);
+        const result = [];
+        result.push(1); // 최초 길이 너비 높이 1
+        console.log("maxWidth : ", maxWidth);
+        // 배열 나누기 2를 해서 앞에 다 더한 숫자가 나오는 답이 2번째 너비?
+        const sliceBricksArr = bricks.slice(0, bricks.length / 2);
+        const halfSum = sliceBricksArr.reduce((acc, item) => acc + item);
+        console.log("sliceBricksArr : ", sliceBricksArr);
+
+        for (let i = maxWidth - 1; i > 0; i--) {
+          if (i <= halfSum) {
+            console.log(halfSum);
+            console.log(i);
+          }
+        }
+
+        // while 문사용
+
+        // const halfSum = sliceBricksArr.reduce((acc, item) => acc + item);
+        // maxWidth / halfLength 나누면 2?
+        // console.log(maxWidth - 1);
+        // console.log(`halfSum : ${halfSum}`);
+        // 첫번째는 높이1 maxWidth6
+
+        return "return";
+      }
+
+      console.log(solution([2, 1, 1, 2]));
+    </script>
+  </body>
+</html>
