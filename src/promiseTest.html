@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log("start");
+      const p = () =>
+        new Promise(function (resolve, reject) {
+          console.log("promise");
+          let count = 0;
+          const a = () => {
+            setTimeout(function () {
+              if (count > 5) {
+                console.log("count 5 이상 end");
+                resolve(count);
+                return;
+              }
+              // console.log("resolve");
+              // resolve();
+              console.log(count);
+              count++;
+              a();
+            }, 1000);
+          };
+          a();
+        });
+
+      const res = p().then((count) => {
+        console.log(count);
+        alert("count");
+      });
+      console.log("end");
+    </script>
+  </body>
+</html>
