@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script>
+      function solution(string, findLetter) {
+        let answer = 0
+
+        for (let i of string) {
+          if (i === findLetter) {
+            answer++
+          }
+        }
+
+        // string.split(findLetter).length = 1;
+
+        return answer
+      }
+
+      console.log(solution('COMPUTERPROGRAMMING', 'R'))
+    </script>
+  </body>
+</html>
