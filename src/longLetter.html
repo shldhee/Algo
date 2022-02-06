@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script>
+      function solution(string) {
+        // const length = string.length
+        // // 홀수일때
+        // if (length % 2 === 1) {
+        //   answer = string.substring(
+        //     Math.floor(length / 2),
+        //     Math.floor(length / 2) + 1
+        //   )
+        // } else {
+        //   //짝수일때
+        //   answer = string.substring(length / 2 - 1, length / 2 + 1)
+        // }
+
+        let mid = Math.floor(string.length / 2)
+        if (string.length % 2 === 1) {
+          return string.substring(mid, mid + 1)
+        } else {
+          return string.substring(mid - 1, mid + 1)
+        }
+        return answer
+      }
+
+      console.log(solution('study'))
+      console.log(solution('good'))
+    </script>
+  </body>
+</html>
