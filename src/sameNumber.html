@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = [];
+        // for (let i of arr) {
+        //   if (i === arr[i + 1]) {
+        //     if (index === 0) {
+        //       answer.push(i);
+        //     } else {
+        //       if (arr[i - 1] === i) {
+        //         answer.push(i);
+        //       }
+        //     }
+        //   }
+        // }
+        // forEach
+        // reduce
+        answer = arr.reduce((acc, cur, index) => {
+          if (cur === arr[index + 1]) {
+            if (index === 0) {
+              acc.push(cur);
+            } else {
+              if (arr[index - 1] === cur) return acc;
+              acc.push(cur);
+            }
+          }
+          return acc;
+        }, []);
+        return answer;
+      }
+      //medium.com/@760kry/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%99%EC%9D%80-%EC%88%AB%EC%9E%90%EB%8A%94-%EC%8B%AB%EC%96%B4-9668f116f429
+      // 연속된 숫자 뽑기로 암
+      console.log(solution([1, 1, 2, 2, 3, 3])); // [1,2,3]
+      console.log(solution([1, 1, 3, 3, 0, 1, 1])); // [4,3]
+      console.log(solution([4, 4, 4, 2, 3, 3])); // [4,3]
+    </script>
+  </body>
+</html>
