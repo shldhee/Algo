@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script>
+      function solution(string) {
+        let answer = []
+        for (let i of string) {
+          if (answer.indexOf(i) === -1) {
+            answer.push(i)
+          }
+        }
+        return answer.join('')
+
+        // let answer = ''
+        // for (let i = 0; i < string.length; i++) {
+        //   if (string.indexOf(i) === i) {
+        //     answer += s[i]
+        //   }
+        // }
+        // return answer
+
+        // 중복 문자 찾기
+        // let answer = 0;
+        // let pos = string.indexOf('k');
+
+        // while(pos !== -1) {
+        //   answer++;
+        //   pos = string.indexOf('k', pos + 1)
+        // }
+        // return answer;
+      }
+
+      console.log(solution('ksekkset')) // kset
+    </script>
+  </body>
+</html>
