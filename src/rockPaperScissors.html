@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr, arr2) {
+        // let answer = []
+        // const resultObject = {
+        //   1: {
+        //     win: 3,
+        //     lose: 2,
+        //   },
+        //   2: {
+        //     win: 1,
+        //     lose: 3,
+        //   },
+        //   3: {
+        //     win: 2,
+        //     lose: 1,
+        //   },
+        // }
+
+        // for (i = 0; i < arr.length; i++) {
+        //   const winNumber = resultObject[arr[i]].win
+        //   const loseNumber = resultObject[arr[i]].lose
+        //   if (arr[i] === arr2[i]) {
+        //     answer.push('D')
+        //   } else if (arr2[i] === winNumber) {
+        //     answer.push('A')
+        //   } else {
+        //     answer.push('B')
+        //   }
+        // }
+        // return answer
+
+        let answer = ''
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] === b[i]) answer += 'D' + ' '
+          else if (arr[i] === 1 && arr2[i] === 3) answer += 'A' + ' '
+          else if (arr[i] === 2 && arr2[i] === 1) answer += 'A' + ' '
+          else if (arr[i] === 3 && arr2[i] === 2) answer += 'A' + ' '
+          else answer += 'B' + ' '
+        }
+        return answer
+      }
+
+      console.log(solution([2, 3, 3, 1, 3], [1, 1, 2, 2, 3]))
+    </script>
+  </body>
+</html>
