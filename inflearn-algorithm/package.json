@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "test": "jest",
+    "test:watch": "yarn test --watch-all",
+    "coverage": "yarn test --coverage"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "eslint": "^8.10.0",
+    "jest": "^27.5.1",
+    "jest-plugin-context": "^2.9.0"
+  },
+  "name": "inflearn-algorithm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}

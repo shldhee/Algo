@@ -1,4 +1,14 @@
-/data
+## Mac OS x
+.DS_*
 
-.DS_Store
+## VS Code
+.vscode
 
+## node_modules
+node_modules
+
+## coverage 
+coverage
+
+## data
+data

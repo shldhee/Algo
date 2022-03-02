@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = Number.MIN_SAFE_INTEGER;
+        let rowSum = 0; // [0,0],[0,1],[0,2] ...
+        let columnSum = 0; // [0,1],[1,1],[2,1] ...
+        let sum1 = 0;
+        let sum2 = 0;
+        let length = arr.length;
+
+        for (let i = 0; i < length; i++) {
+          rowSum = 0;
+          columnSum = 0;
+          for (let j = 0; j < length; j++) {
+            rowSum += arr[i][j];
+            columnSum += arr[j][i];
+          }
+          answer = Math.max(answer, rowSum, columnSum);
+        }
+
+        for (let i = 0; i < length; i++) {
+          sum1 += arr[i][i];
+          sum2 += arr[i][length - i - 1];
+          answer = Math.max(answer, sum1, sum2);
+        }
+
+        return answer;
+      }
+
+      let arr = [
+        [10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19],
+      ];
+
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
